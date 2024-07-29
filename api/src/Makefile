@@ -8,7 +8,6 @@ OUT := $(LIB_NAME).so.0
 OBJDIR := obj-$(ARCH)
 INSTALLDIR := ${DESTDIR}/usr/local
 PYTHON3DIST := $(shell python3 -c "import site; print(site.getsitepackages()[0])")
-PYTHON2DIST := $(shell python -c "import site; print(site.getsitepackages()[0])")
 LINK_HIGHCLASS ?= no
 VERSION_NUMBER=`cat ./version.txt`
 SRCS := \
@@ -96,9 +95,7 @@ basicinstall: $(OBJDIR)/$(OUT) get_mvcmd
 
 pythoninstall:
 	mkdir -p ${DESTDIR}$(PYTHON3DIST)
-	mkdir -p ${DESTDIR}$(PYTHON2DIST)
 	cp -r ../python/mvnc ${DESTDIR}$(PYTHON3DIST)/
-	cp -r ../python/mvnc ${DESTDIR}$(PYTHON2DIST)/
 
 postinstall:
 	udevadm control --reload-rules
@@ -115,8 +112,7 @@ uninstall:
 	rm -f $(INSTALLDIR)/lib/mvnc/MvNCAPI-*.mvcmd
 #	rm -rf $(INSTALLDIR)/lib/mvnc
 	rm -rf ${DESTDIR}$(PYTHON3DIST)/mvnc
-	rm -rf ${DESTDIR}$(PYTHON2DIST)/mvnc
-	rm -f ${DESTDIR}/etc/udev/rules.d/97-usbboot.rules
+	rm -f ${DESTDIR}/etc/udev/rules.d/97-ncs2.rules
 
 clean:
 	rm -f $(OUT)
