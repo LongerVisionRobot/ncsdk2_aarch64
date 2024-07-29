@@ -91,7 +91,7 @@ basicinstall: $(OBJDIR)/$(OUT) get_mvcmd
 	mkdir -p $(INSTALLDIR)/lib/mvnc
 	cp mvnc/MvNCAPI-*.mvcmd $(INSTALLDIR)/lib/mvnc/
 	mkdir -p ${DESTDIR}/etc/udev/rules.d/
-	cp 97-usbboot.rules ${DESTDIR}/etc/udev/rules.d/
+	cp 97-ncs2.rules ${DESTDIR}/etc/udev/rules.d/
 
 pythoninstall:
 	mkdir -p ${DESTDIR}$(PYTHON3DIST)
