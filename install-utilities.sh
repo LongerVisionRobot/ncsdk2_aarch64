@@ -455,7 +455,7 @@ function remove_previous_install()
 
     # Remove udev rules files
     [ "${VERBOSE}" = "yes" ] && printf "Searching and removing udev rules..."
-    check_and_remove_file /etc/udev/rules.d/97-usbboot.rules
+    check_and_remove_file /etc/udev/rules.d/97-ncs2.rules
     [ "${VERBOSE}" = "yes" ] && printf "done\n"
 
     # Remove NCSDK files

@@ -766,7 +766,7 @@ function finalize_installer()
 
     # Update udev rules
     echo "Updating udev rules..."
-    $SUDO_PREFIX cp $SDK_DIR/udev/97-usbboot.rules /etc/udev/rules.d/
+    $SUDO_PREFIX cp $SDK_DIR/udev/97-ncs2.rules /etc/udev/rules.d/
     RC=0
     $SUDO_PREFIX udevadm control --reload-rules || RC=$?
     if [ $RC -ne 0 ] ; then
